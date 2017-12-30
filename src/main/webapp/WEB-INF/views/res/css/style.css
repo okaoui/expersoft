@@ -1,0 +1,51 @@
+.cs_center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+.cs_label{
+	color: #000000;
+}
+.cs_button{
+  background: #ff8000; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #ff8000 , white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #ff8000, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #ff8000, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #ff8000 , white); /* Standard syntax */
+}
+
+.left-menu{
+	background: #ff8000; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, #ff8000 , white); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, #ff8000, white); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, #ff8000, white); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #ff8000 , white); /* Standard syntax */
+}
+
+body {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 14px;
+}
+
+.wrapper {
+}
+
+.panel_background{
+	background: #ff8000; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#ff8000, white); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#ff8000, white); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#ff8000, white); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#ff8000, white); /* Standard syntax (must be last) */
+}
+
+.error {
+	color: #ff0000;
+}
+
+.errorblock {
+	color: #000;
+	background-color: #ffEEEE;
+	border: 3px solid #ff0000;
+	padding: 8px;
+	margin: 16px;
+}
