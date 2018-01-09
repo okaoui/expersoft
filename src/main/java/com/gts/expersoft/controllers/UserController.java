@@ -63,7 +63,7 @@ public class UserController {
 				e.printStackTrace();
 			}
 			if(flag){
-				return "home";
+				return "access";
 			}else{
 				return "login";
 			}

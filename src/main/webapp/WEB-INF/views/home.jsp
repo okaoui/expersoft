@@ -15,10 +15,19 @@
 		<script src="resources/lib/jquery.ntm/js/jquery.ntm.js"></script>
 		<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css"/>
 		<link rel="stylesheet" href="resources/lib/jquery.ntm/themes/default/css/theme.css" />
+		
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+		  <link rel="stylesheet" href="resources/dist/css/bootstrap-submenu.min.css">
+		
+		  <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
+		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
+		  <script src="resources/dist/js/bootstrap-submenu.min.js" defer></script>
 	<script type="text/javascript">
 		$(document).ready(function() {
 			$('.demo').ntm();
 		});
+		$('[data-submenu]').submenupicker();
 	</script>
 	</head>
 <body>
@@ -26,16 +35,53 @@
 			<div class="row">
 				<div class="col-md-12" style="padding-top:10px;">
 					<nav class="navbar navbar-inverse">
-					  <div class="container-fluid">
 					    <div class="navbar-header">
 					      <a class="navbar-brand" href="#">EXPERSOFT</a>
 					    </div>
+					   <div class="collapse navbar-collapse">
 					    <ul class="nav navbar-nav">
 					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Employée
+					        <a tabindex="0" data-toggle="dropdown" data-submenu>Employée
 					        <span class="caret"></span></a>
 					        <ul class="dropdown-menu">
-					          <li><a href="#">Access</a></li>
+					          <li class="dropdown-submenu">
+  								<a tabindex="0">Access</a>
+  									<ul class="dropdown-menu">
+									    <li><a tabindex="0">Sub action</a></li>
+									    <li class="dropdown-submenu">
+									      <a tabindex="0">Another sub action</a>
+									
+									      <ul class="dropdown-menu">
+									        <li><a tabindex="0">Sub action</a></li>
+									        <li><a tabindex="0">Another sub action</a></li>
+									        <li><a tabindex="0">Something else here</a></li>
+									      </ul>
+									    </li>
+									    <li><a tabindex="0">Something else here</a></li>
+									    <li class="disabled"><a tabindex="-1">Disabled action</a></li>
+									    <li class="dropdown-submenu">
+									      <a tabindex="0">Another action</a>
+									
+									      <ul class="dropdown-menu">
+									        <li><a tabindex="0">Sub action</a></li>
+									        <li><a tabindex="0">Another sub action</a></li>
+									        <li><a tabindex="0">Something else here</a></li>
+									      </ul>
+									    </li>
+									  </ul>
+  								</li>
+  								<li class="dropdown-submenu">
+								  <a tabindex="0">Another action</a>
+								
+								  <ul class="dropdown-menu">
+								    <li><a tabindex="0">Sub action</a></li>
+								    <li><a tabindex="0">Another sub action</a></li>
+								    <li><a tabindex="0">Something else here</a></li>
+								  </ul>
+								</li>
+								<li><a tabindex="0">Something else here</a></li>
+								<li class="divider"></li>
+								<li><a tabindex="0">Separated link</a></li>
 					          <li><a href="#">Profile</a></li>
 					        </ul>
 					      </li>
