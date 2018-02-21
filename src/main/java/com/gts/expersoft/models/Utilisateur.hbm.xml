@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Utilisateur" table="utilisateur" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="profile" class="com.gts.expersoft.models.Profile" fetch="select">
+            <column name="profile_id" not-null="true" />
+        </many-to-one>
+        <property name="nom" type="string">
+            <column name="nom" length="45" />
+        </property>
+        <property name="prenom" type="string">
+            <column name="prenom" length="45" />
+        </property>
+        <property name="matricule" type="string">
+            <column name="matricule" length="45" />
+        </property>
+        <property name="fonction" type="string">
+            <column name="fonction" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="200" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="45" />
+        </property>
+        <property name="login" type="string">
+            <column name="login" length="45" />
+        </property>
+        <property name="password" type="string">
+            <column name="password" length="45" />
+        </property>
+        <set name="logins" table="login" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="utilisateur_id" not-null="true" />
+            </key>
+            <one-to-many class="com.gts.expersoft.models.Login" />
+        </set>
+    </class>
+</hibernate-mapping>

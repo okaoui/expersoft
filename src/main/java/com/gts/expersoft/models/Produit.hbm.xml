@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Produit" table="produit" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="codProd" type="string">
+            <column name="COD_PROD" length="65535" />
+        </property>
+        <property name="libProd" type="string">
+            <column name="LIB_PROD" length="65535" />
+        </property>
+        <property name="pnobe" type="string">
+            <column name="PNOBE" length="65535" />
+        </property>
+        <property name="noBe" type="java.lang.Integer">
+            <column name="NO_BE" />
+        </property>
+        <property name="noBs" type="java.lang.Integer">
+            <column name="NO_BS" />
+        </property>
+        <property name="pnobs" type="string">
+            <column name="PNOBS" length="65535" />
+        </property>
+        <property name="bic" type="java.lang.Double">
+            <column name="BIC" precision="22" scale="0" />
+        </property>
+        <property name="cptAch" type="string">
+            <column name="CPT_ACH" length="65535" />
+        </property>
+        <property name="cptVte" type="string">
+            <column name="CPT_VTE" length="65535" />
+        </property>
+        <property name="cptBic" type="string">
+            <column name="CPT_BIC" length="65535" />
+        </property>
+        <property name="codUom" type="string">
+            <column name="COD_UOM" length="65535" />
+        </property>
+        <property name="codUom2" type="string">
+            <column name="COD_UOM2" length="65535" />
+        </property>
+        <property name="puFarm" type="java.lang.Double">
+            <column name="PU_FARM" precision="22" scale="0" />
+        </property>
+        <property name="puFou" type="java.lang.Double">
+            <column name="PU_FOU" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Lmvtbq" table="lmvtbq" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.LmvtbqId">
+            <key-property name="nolig,n,1,0" type="java.lang.Integer">
+                <column name="NOLIG,N,1,0" />
+            </key-property>
+            <key-property name="datposting,d" type="string">
+                <column name="DATPOSTING,D" length="65535" />
+            </key-property>
+            <key-property name="reference" type="string">
+                <column name="REFERENCE" length="65535" />
+            </key-property>
+            <key-property name="dateDoc" type="string">
+                <column name="DATE_DOC" length="65535" />
+            </key-property>
+            <key-property name="nocpte" type="string">
+                <column name="NOCPTE" length="65535" />
+            </key-property>
+            <key-property name="libJou" type="string">
+                <column name="LIB_JOU" length="65535" />
+            </key-property>
+            <key-property name="libelle" type="string">
+                <column name="LIBELLE" length="65535" />
+            </key-property>
+            <key-property name="nomPers" type="string">
+                <column name="NOM_PERS" length="65535" />
+            </key-property>
+            <key-property name="mtDebit" type="string">
+                <column name="MT_DEBIT" length="65535" />
+            </key-property>
+            <key-property name="mtCredit" type="java.lang.Double">
+                <column name="MT_CREDIT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mtSolde" type="string">
+                <column name="MT_SOLDE" length="65535" />
+            </key-property>
+            <key-property name="codBq" type="string">
+                <column name="COD_BQ" length="65535" />
+            </key-property>
+            <key-property name="noMvt" type="string">
+                <column name="NO_MVT" length="65535" />
+            </key-property>
+            <key-property name="codJou" type="string">
+                <column name="COD_JOU" length="65535" />
+            </key-property>
+            <key-property name="ins" type="string">
+                <column name="INS" length="65535" />
+            </key-property>
+            <key-property name="num" type="string">
+                <column name="NUM" length="65535" />
+            </key-property>
+            <key-property name="sens" type="string">
+                <column name="SENS" length="65535" />
+            </key-property>
+            <key-property name="matPers" type="string">
+                <column name="MAT_PERS" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

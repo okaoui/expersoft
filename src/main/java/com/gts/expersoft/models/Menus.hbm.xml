@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Menus" table="menus" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="nom" type="string">
+            <column name="nom" length="65535" />
+        </property>
+        <property name="menuId" type="java.lang.Integer">
+            <column name="menu_id" />
+        </property>
+        <property name="level" type="java.lang.Integer">
+            <column name="level" />
+        </property>
+        <set name="profiles" table="profile_has_menus" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="menus_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="com.gts.expersoft.models.Profile">
+                <column name="profile_id" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

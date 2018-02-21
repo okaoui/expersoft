@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Contf" table="contf" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.ContfId">
+            <key-property name="nom" type="string">
+                <column name="NOM" length="65535" />
+            </key-property>
+            <key-property name="contact" type="string">
+                <column name="CONTACT" length="65535" />
+            </key-property>
+            <key-property name="fonction" type="string">
+                <column name="FONCTION" length="65535" />
+            </key-property>
+            <key-property name="refPiece" type="string">
+                <column name="REF_PIECE" length="65535" />
+            </key-property>
+            <key-property name="codFou" type="string">
+                <column name="COD_FOU" length="65535" />
+            </key-property>
+            <key-property name="num" type="string">
+                <column name="NUM" length="65535" />
+            </key-property>
+            <key-property name="ins" type="string">
+                <column name="INS" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

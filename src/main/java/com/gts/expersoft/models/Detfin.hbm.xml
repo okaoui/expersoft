@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Detfin" table="detfin" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.DetfinId">
+            <key-property name="codDetfin" type="string">
+                <column name="COD_DETFIN" length="65535" />
+            </key-property>
+            <key-property name="libDetfin" type="string">
+                <column name="LIB_DETFIN" length="65535" />
+            </key-property>
+            <key-property name="unite" type="string">
+                <column name="UNITE" length="65535" />
+            </key-property>
+            <key-property name="ordre" type="java.lang.Integer">
+                <column name="ORDRE" />
+            </key-property>
+            <key-property name="qteHa" type="java.lang.Double">
+                <column name="QTE_HA" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteSac" type="java.lang.Double">
+                <column name="QTE_SAC" precision="22" scale="0" />
+            </key-property>
+            <key-property name="puAch" type="java.lang.Double">
+                <column name="PU_ACH" precision="22" scale="0" />
+            </key-property>
+            <key-property name="puVte" type="java.lang.Double">
+                <column name="PU_VTE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="coefConv" type="java.lang.Double">
+                <column name="COEF_CONV" precision="22" scale="0" />
+            </key-property>
+            <key-property name="unitconv" type="string">
+                <column name="UNITCONV" length="65535" />
+            </key-property>
+            <key-property name="stockD" type="java.lang.Double">
+                <column name="STOCK_D" precision="22" scale="0" />
+            </key-property>
+            <key-property name="descrip" type="string">
+                <column name="DESCRIP" length="65535" />
+            </key-property>
+            <key-property name="codTypfin" type="string">
+                <column name="COD_TYPFIN" length="65535" />
+            </key-property>
+            <key-property name="stockM" type="java.lang.Double">
+                <column name="STOCK_M" precision="22" scale="0" />
+            </key-property>
+            <key-property name="libTypfin" type="string">
+                <column name="LIB_TYPFIN" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

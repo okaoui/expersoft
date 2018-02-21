@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Banque" table="banque" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.BanqueId">
+            <key-property name="codBq" type="string">
+                <column name="COD_BQ" length="65535" />
+            </key-property>
+            <key-property name="libBq" type="string">
+                <column name="LIB_BQ" length="65535" />
+            </key-property>
+            <key-property name="compte" type="string">
+                <column name="COMPTE" length="65535" />
+            </key-property>
+            <key-property name="gestion" type="string">
+                <column name="GESTION" length="65535" />
+            </key-property>
+            <key-property name="etatImp" type="string">
+                <column name="ETAT_IMP" length="65535" />
+            </key-property>
+            <key-property name="mtLimit" type="java.lang.Double">
+                <column name="MT_LIMIT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="nocptBq" type="string">
+                <column name="NOCPT_BQ" length="65535" />
+            </key-property>
+            <key-property name="adrBq" type="string">
+                <column name="ADR_BQ" length="65535" />
+            </key-property>
+            <key-property name="telBq" type="string">
+                <column name="TEL_BQ" length="65535" />
+            </key-property>
+            <key-property name="faxBq" type="string">
+                <column name="FAX_BQ" length="65535" />
+            </key-property>
+            <key-property name="importe" type="string">
+                <column name="IMPORTE" length="65535" />
+            </key-property>
+            <key-property name="codCaut" type="java.lang.Integer">
+                <column name="COD_CAUT" />
+            </key-property>
+            <key-property name="codLetr" type="java.lang.Integer">
+                <column name="COD_LETR" />
+            </key-property>
+            <key-property name="chqConf" type="string">
+                <column name="CHQ_CONF" length="65535" />
+            </key-property>
+            <key-property name="chroJou" type="java.lang.Integer">
+                <column name="CHRO_JOU" />
+            </key-property>
+            <key-property name="codIban" type="string">
+                <column name="COD_IBAN" length="65535" />
+            </key-property>
+            <key-property name="codSwift" type="string">
+                <column name="COD_SWIFT" length="65535" />
+            </key-property>
+            <key-property name="repCau" type="string">
+                <column name="REP_CAU" length="65535" />
+            </key-property>
+            <key-property name="typBq" type="java.lang.Integer">
+                <column name="TYP_BQ" />
+            </key-property>
+            <key-property name="comptBq" type="string">
+                <column name="COMPT_BQ" length="65535" />
+            </key-property>
+            <key-property name="foncGest" type="string">
+                <column name="FONC_GEST" length="65535" />
+            </key-property>
+            <key-property name="telGest" type="string">
+                <column name="TEL_GEST" length="65535" />
+            </key-property>
+            <key-property name="mtSeuil" type="java.lang.Integer">
+                <column name="MT_SEUIL" />
+            </key-property>
+            <key-property name="iban" type="string">
+                <column name="IBAN" length="65535" />
+            </key-property>
+            <key-property name="swift" type="string">
+                <column name="SWIFT" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

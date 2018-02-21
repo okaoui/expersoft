@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Campagne" table="campagne" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <property name="code" type="string">
+            <column name="code" length="45" />
+        </property>
+        <property name="raisonSociale" type="string">
+            <column name="raison_sociale" length="100" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="500" />
+        </property>
+        <property name="activity" type="string">
+            <column name="activity" length="45" />
+        </property>
+        <property name="pays" type="string">
+            <column name="pays" length="45" />
+        </property>
+        <property name="ville" type="string">
+            <column name="ville" length="45" />
+        </property>
+        <property name="telephone" type="string">
+            <column name="telephone" length="45" />
+        </property>
+        <property name="fax" type="string">
+            <column name="fax" length="45" />
+        </property>
+        <property name="siteweb" type="string">
+            <column name="siteweb" length="100" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="150" />
+        </property>
+        <property name="codeFiscalite" type="string">
+            <column name="code_fiscalite" length="45" />
+        </property>
+        <property name="agrement" type="string">
+            <column name="agrement" length="45" />
+        </property>
+        <property name="compteContribual" type="string">
+            <column name="compte_contribual" length="100" />
+        </property>
+        <property name="recolte" type="string">
+            <column name="recolte" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

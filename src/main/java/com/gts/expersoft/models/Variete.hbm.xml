@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Variete" table="variete" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.VarieteId">
+            <key-property name="codVar" type="string">
+                <column name="COD_VAR" length="65535" />
+            </key-property>
+            <key-property name="libProd" type="string">
+                <column name="LIB_PROD" length="65535" />
+            </key-property>
+            <key-property name="libVar" type="string">
+                <column name="LIB_VAR" length="65535" />
+            </key-property>
+            <key-property name="codProd" type="string">
+                <column name="COD_PROD" length="65535" />
+            </key-property>
+            <key-property name="abrege" type="string">
+                <column name="ABREGE" length="65535" />
+            </key-property>
+            <key-property name="ordre" type="java.lang.Integer">
+                <column name="ORDRE" />
+            </key-property>
+            <key-property name="id" type="java.lang.Integer">
+                <column name="id" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

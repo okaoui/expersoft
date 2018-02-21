@@ -1,0 +1,250 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Be" table="be" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.BeId">
+            <key-property name="nobe" type="java.lang.Integer">
+                <column name="NOBE" />
+            </key-property>
+            <key-property name="datbe" type="string">
+                <column name="DATBE" length="65535" />
+            </key-property>
+            <key-property name="raisonFou" type="string">
+                <column name="RAISON_FOU" length="65535" />
+            </key-property>
+            <key-property name="poidnet" type="java.lang.Integer">
+                <column name="POIDNET" />
+            </key-property>
+            <key-property name="connais" type="string">
+                <column name="CONNAIS" length="65535" />
+            </key-property>
+            <key-property name="codFou" type="string">
+                <column name="COD_FOU" length="65535" />
+            </key-property>
+            <key-property name="codUom" type="string">
+                <column name="COD_UOM" length="65535" />
+            </key-property>
+            <key-property name="tareSac" type="java.lang.Double">
+                <column name="TARE_SAC" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codProd" type="string">
+                <column name="COD_PROD" length="65535" />
+            </key-property>
+            <key-property name="camion" type="string">
+                <column name="CAMION" length="65535" />
+            </key-property>
+            <key-property name="remorq" type="string">
+                <column name="REMORQ" length="65535" />
+            </key-property>
+            <key-property name="poiddec" type="java.lang.Integer">
+                <column name="POIDDEC" />
+            </key-property>
+            <key-property name="ecartPoid" type="java.lang.Integer">
+                <column name="ECART_POID" />
+            </key-property>
+            <key-property name="codMag" type="string">
+                <column name="COD_MAG" length="65535" />
+            </key-property>
+            <key-property name="codStat" type="string">
+                <column name="COD_STAT" length="65535" />
+            </key-property>
+            <key-property name="matPers" type="string">
+                <column name="MAT_PERS" length="65535" />
+            </key-property>
+            <key-property name="chauffeur" type="string">
+                <column name="CHAUFFEUR" length="65535" />
+            </key-property>
+            <key-property name="decision" type="java.lang.Integer">
+                <column name="DECISION" />
+            </key-property>
+            <key-property name="dateAdd" type="string">
+                <column name="DATE_ADD" length="65535" />
+            </key-property>
+            <key-property name="dateEdit" type="string">
+                <column name="DATE_EDIT" length="65535" />
+            </key-property>
+            <key-property name="codUtVal" type="string">
+                <column name="COD_UT_VAL" length="65535" />
+            </key-property>
+            <key-property name="dateValid" type="string">
+                <column name="DATE_VALID" length="65535" />
+            </key-property>
+            <key-property name="timeValid" type="string">
+                <column name="TIME_VALID" length="65535" />
+            </key-property>
+            <key-property name="codTrans" type="string">
+                <column name="COD_TRANS" length="65535" />
+            </key-property>
+            <key-property name="noCont" type="string">
+                <column name="NO_CONT" length="65535" />
+            </key-property>
+            <key-property name="qte1" type="java.lang.Double">
+                <column name="QTE1" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qte2" type="java.lang.Double">
+                <column name="QTE2" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qte3" type="java.lang.Double">
+                <column name="QTE3" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qtet" type="java.lang.Double">
+                <column name="QTET" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mt1" type="java.lang.Double">
+                <column name="MT1" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mt2" type="java.lang.Double">
+                <column name="MT2" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mt3" type="java.lang.Double">
+                <column name="MT3" precision="22" scale="0" />
+            </key-property>
+            <key-property name="montant" type="java.lang.Integer">
+                <column name="MONTANT" />
+            </key-property>
+            <key-property name="datdeb" type="string">
+                <column name="DATDEB" length="65535" />
+            </key-property>
+            <key-property name="datfin" type="string">
+                <column name="DATFIN" length="65535" />
+            </key-property>
+            <key-property name="codQ1" type="string">
+                <column name="COD_Q1" length="65535" />
+            </key-property>
+            <key-property name="codQ2" type="string">
+                <column name="COD_Q2" length="65535" />
+            </key-property>
+            <key-property name="libQ1" type="string">
+                <column name="LIB_Q1" length="65535" />
+            </key-property>
+            <key-property name="libQ2" type="string">
+                <column name="LIB_Q2" length="65535" />
+            </key-property>
+            <key-property name="codEquip" type="string">
+                <column name="COD_EQUIP" length="65535" />
+            </key-property>
+            <key-property name="codVar" type="string">
+                <column name="COD_VAR" length="65535" />
+            </key-property>
+            <key-property name="codFarm" type="string">
+                <column name="COD_FARM" length="65535" />
+            </key-property>
+            <key-property name="nomFarm" type="string">
+                <column name="NOM_FARM" length="65535" />
+            </key-property>
+            <key-property name="codParcel" type="string">
+                <column name="COD_PARCEL" length="65535" />
+            </key-property>
+            <key-property name="codVil" type="string">
+                <column name="COD_VIL" length="65535" />
+            </key-property>
+            <key-property name="libVil" type="string">
+                <column name="LIB_VIL" length="65535" />
+            </key-property>
+            <key-property name="libVar" type="string">
+                <column name="LIB_VAR" length="65535" />
+            </key-property>
+            <key-property name="puFarm" type="java.lang.Double">
+                <column name="PU_FARM" precision="22" scale="0" />
+            </key-property>
+            <key-property name="puFou" type="java.lang.Double">
+                <column name="PU_FOU" precision="22" scale="0" />
+            </key-property>
+            <key-property name="montfarm" type="java.lang.Double">
+                <column name="MONTFARM" precision="22" scale="0" />
+            </key-property>
+            <key-property name="refbe" type="java.lang.Integer">
+                <column name="REFBE" />
+            </key-property>
+            <key-property name="datcond" type="string">
+                <column name="DATCOND" length="65535" />
+            </key-property>
+            <key-property name="codCal1" type="string">
+                <column name="COD_CAL1" length="65535" />
+            </key-property>
+            <key-property name="qteCal1" type="java.lang.Double">
+                <column name="QTE_CAL1" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal2" type="string">
+                <column name="COD_CAL2" length="65535" />
+            </key-property>
+            <key-property name="qteCal2" type="java.lang.Double">
+                <column name="QTE_CAL2" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal3" type="string">
+                <column name="COD_CAL3" length="65535" />
+            </key-property>
+            <key-property name="qteCal3" type="java.lang.Double">
+                <column name="QTE_CAL3" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal4" type="string">
+                <column name="COD_CAL4" length="65535" />
+            </key-property>
+            <key-property name="qteCal4" type="java.lang.Double">
+                <column name="QTE_CAL4" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal5" type="string">
+                <column name="COD_CAL5" length="65535" />
+            </key-property>
+            <key-property name="qteCal5" type="java.lang.Double">
+                <column name="QTE_CAL5" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal6" type="string">
+                <column name="COD_CAL6" length="65535" />
+            </key-property>
+            <key-property name="qteCal6" type="java.lang.Double">
+                <column name="QTE_CAL6" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal7" type="string">
+                <column name="COD_CAL7" length="65535" />
+            </key-property>
+            <key-property name="qteCal7" type="java.lang.Double">
+                <column name="QTE_CAL7" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal8" type="string">
+                <column name="COD_CAL8" length="65535" />
+            </key-property>
+            <key-property name="qteCal8" type="java.lang.Double">
+                <column name="QTE_CAL8" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal9" type="string">
+                <column name="COD_CAL9" length="65535" />
+            </key-property>
+            <key-property name="qteCal9" type="java.lang.Double">
+                <column name="QTE_CAL9" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal10" type="string">
+                <column name="COD_CAL10" length="65535" />
+            </key-property>
+            <key-property name="qteCal10" type="java.lang.Double">
+                <column name="QTE_CAL10" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal11" type="string">
+                <column name="COD_CAL11" length="65535" />
+            </key-property>
+            <key-property name="qteCal11" type="java.lang.Double">
+                <column name="QTE_CAL11" precision="22" scale="0" />
+            </key-property>
+            <key-property name="codCal12" type="string">
+                <column name="COD_CAL12" length="65535" />
+            </key-property>
+            <key-property name="qteCal12" type="java.lang.Double">
+                <column name="QTE_CAL12" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteTore" type="java.lang.Double">
+                <column name="QTE_TORE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteNtore" type="java.lang.Double">
+                <column name="QTE_NTORE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteSpoid" type="java.lang.Double">
+                <column name="QTE_SPOID" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteTot" type="java.lang.Double">
+                <column name="QTE_TOT" precision="22" scale="0" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

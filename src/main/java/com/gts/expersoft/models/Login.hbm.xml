@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Login" table="login" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="java.lang.Integer">
+            <column name="id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="utilisateur" class="com.gts.expersoft.models.Utilisateur" fetch="select">
+            <column name="utilisateur_id" not-null="true" />
+        </many-to-one>
+        <property name="loginDate" type="timestamp">
+            <column name="login_date" length="0" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Uom" table="uom" catalog="xpersoft" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <property name="libUom" type="string">
+            <column name="lib_uom" length="40" />
+        </property>
+        <property name="qtePackin" type="java.lang.Double">
+            <column name="qte_packin" precision="22" scale="0" />
+        </property>
+        <property name="codUom" type="string">
+            <column name="cod_uom" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>

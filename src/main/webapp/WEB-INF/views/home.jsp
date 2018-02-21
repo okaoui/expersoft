@@ -1,3 +1,6 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.gts.expersoft.models.Menus"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -18,283 +21,113 @@
 		
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-		  <link rel="stylesheet" href="resources/dist/css/bootstrap-submenu.min.css">
+		  <link href="resources/css/navbar.css" rel="stylesheet">
+		  <!-- <link rel="stylesheet" href="resources/dist/css/bootstrap-submenu.min.css"> -->
 		
-		  <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script>
+		  <!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js" defer></script> -->
 		  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" defer></script>
 		  <script src="resources/dist/js/bootstrap-submenu.min.js" defer></script>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('.demo').ntm();
-		});
-		$('[data-submenu]').submenupicker();
-	</script>
+		  
+	
 	</head>
 <body>
+		<style>
+            body {
+                padding-top: 50px;
+            }
+            .navbar-template {
+                padding: 40px 15px;
+            }
+
+        </style>
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="sr-only">XPERSOFT</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">XPERSOFT</a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                    <%
+                    	List<Menus> menus = (List<Menus>)session.getAttribute("userMenus");
+                    	
+                    	for(int i = 0; i < menus.size(); i++){
+                    		Menus m = menus.get(i);
+                    		
+                    		//menus.remove(i);
+                    		
+                    		%>
+                    		<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                    				<%=m.getNom()%>
+                    			<b class="caret"></b></a>
+                    			<ul class="dropdown-menu">
+                    			
+                    			<%
+                    				List<Menus> submenus = m.getSubmenus();
+       								
+       								if(submenus != null && submenus.size() > 0){
+       									for(Menus m3 : submenus){
+       										List<Menus> submenus2 = m3.getSubmenus();
+       										%>
+       										<%if(submenus2 != null && submenus2.size() > 0){ %>
+       										<li><a href="#" class="dropdown-toggle" data-toggle="dropdown">
+       											<%=m3.getNom()%><b class="caret"></b>
+       										</a>
+       										
+       											<ul class="dropdown-menu">
+       											
+       												<% 
+       													for(int y = 0; y < submenus2.size(); y++){
+       														Menus my = submenus2.get(y);
+       														%>
+       															<li><a href="${pageContext.request.contextPath}/event?id=<%=my.getId()%>">
+       																	<%=my.getNom()%>
+       																</a>
+       															</li>
+       														<%
+       														
+       													}
+       												%>
+       											
+       											</ul>
+       										</li>
+       										<%
+       										}else{
+       											%>
+       											<li><a href="${pageContext.request.contextPath}/event?id=<%=m3.getId()%>"><%=m3.getNom()%></a></li>
+       										
+       											<% }
+       										}
+       									
+       								}
+                    			%>
+                    			</ul>
+                    			
+                    			</li> 
+                    	<%} %>
+                    	
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                    	<li><a href="${pageContext.request.contextPath}?logout"><span class="glyphicon glyphicon-log-in"></span> &nbsp;&nbsp;Sortir</a></li>
+                    </ul>
+                    
+                </div><!--/.nav-collapse -->
+            </div>
+        </div>
 		<div class="container">
-			<div class="row">
-				<div class="col-md-12" style="padding-top:10px;">
-					<nav class="navbar navbar-inverse">
-					    <div class="navbar-header">
-					      <a class="navbar-brand" href="#">EXPERSOFT</a>
-					    </div>
-					   <div class="collapse navbar-collapse">
-					    <ul class="nav navbar-nav">
-					      <li class="dropdown">
-					        <a tabindex="0" data-toggle="dropdown" data-submenu>Employée
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li class="dropdown-submenu">
-  								<a tabindex="0">Access</a>
-  									<ul class="dropdown-menu">
-									    <li><a tabindex="0">Sub action</a></li>
-									    <li class="dropdown-submenu">
-									      <a tabindex="0">Another sub action</a>
-									
-									      <ul class="dropdown-menu">
-									        <li><a tabindex="0">Sub action</a></li>
-									        <li><a tabindex="0">Another sub action</a></li>
-									        <li><a tabindex="0">Something else here</a></li>
-									      </ul>
-									    </li>
-									    <li><a tabindex="0">Something else here</a></li>
-									    <li class="disabled"><a tabindex="-1">Disabled action</a></li>
-									    <li class="dropdown-submenu">
-									      <a tabindex="0">Another action</a>
-									
-									      <ul class="dropdown-menu">
-									        <li><a tabindex="0">Sub action</a></li>
-									        <li><a tabindex="0">Another sub action</a></li>
-									        <li><a tabindex="0">Something else here</a></li>
-									      </ul>
-									    </li>
-									  </ul>
-  								</li>
-  								<li class="dropdown-submenu">
-								  <a tabindex="0">Another action</a>
-								
-								  <ul class="dropdown-menu">
-								    <li><a tabindex="0">Sub action</a></li>
-								    <li><a tabindex="0">Another sub action</a></li>
-								    <li><a tabindex="0">Something else here</a></li>
-								  </ul>
-								</li>
-								<li><a tabindex="0">Something else here</a></li>
-								<li class="divider"></li>
-								<li><a tabindex="0">Separated link</a></li>
-					          <li><a href="#">Profile</a></li>
-					        </ul>
-					      </li>
-					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Clients
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Nouveau</a></li>
-					          <li><a href="#">Profile</a></li>
-					        </ul>
-					      </li>
-					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Campagne
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Création du campagne</a></li>
-					          <li><a href="#">Cloture du campagne</a></li>
-					        </ul>
-					      </li>
-					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Vente
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Page 1-1</a></li>
-					          <li><a href="#">Page 1-2</a></li>
-					          <li><a href="#">Page 1-3</a></li>
-					        </ul>
-					      </li>
-					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Achat
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Page 1-1</a></li>
-					          <li><a href="#">Page 1-2</a></li>
-					          <li><a href="#">Page 1-3</a></li>
-					        </ul>
-					      </li>
-					      <li class="dropdown">
-					        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Fournisseur
-					        <span class="caret"></span></a>
-					        <ul class="dropdown-menu">
-					          <li><a href="#">Page 1-1</a></li>
-					          <li><a href="#">Page 1-2</a></li>
-					          <li><a href="#">Page 1-3</a></li>
-					        </ul>
-					      </li>
-					      <li><a href="#">Configuration</a></li>
-					      <li><a href="#">Aide</a></li>
-					    </ul>
-					    <ul class="nav navbar-nav navbar-right">
-					      <li><a href="#"><span class="glyphicon glyphicon-user"></span> ${storedUser.firstName}</a></li>
-					      <li><a href="${pageContext.request.contextPath}?logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
-					    </ul>
-					  </div>
-					</nav>
-				</div>
-			</div>
-			
-			<!--  Body  -->
-			<div class="row">
-				<!-- Left menu -->
-				<div class="col-md-3">
-					<div class="wrapper">
-					  <div class="tree-menu demo" id="tree-menu">
-						<ul>
-						  <li><a href="#">Problem Management</a>
-								<ul>
-								  <li><a href="#">Lookup</a></li>
-								  <li><a href="#">List</a></li>
-								</ul>
-						   </li>
-						   <li><a href="#">Solution Management</a>
-								<ul>
-								  <li><a href="#">Create</a></li>
-								  <li><a href="#">Lookup</a></li>
-								  <li><a href="#">List</a></li>
-								  <li><a href="#">Update</a></li>
-								</ul>
-							</li>
-							<li><a href="#">Contact</a>
-								<ul>
-								  <li><a href="#">Non-tech user</a></li>
-								  <li><a href="#">Developer</a></li>
-								  <li><a href="#">Administrator</a></li>
-								</ul>
-							</li>
-							<li><a href="#">My Profile</a></li>
-						</ul>
-					  </div>
-					</div>
-				</div>
-				<!-- Main body -->
-				<div class="col-md-9">
-					<div class="row"><!-- 2 divs, At first glance and Quality -->
-						<div class="col-md-4 panel panel-default panel_background" style="margin-right: 10px; height: 250px;">
-						 <fieldset style="color:#fcfcfc; font-size:10px;">
-							<legend style="color:#fcfcfc;">Solutions Status</legend>
-							<span>Pending Solutions:&nbsp;&nbsp;<a href="">6</a></span><br>
-							<span>Accepted Solutions:&nbsp;&nbsp;<a href="">10 </a></span><br>
-							<span>Declined Solutions:&nbsp;&nbsp;<a href="">7</a></span><br>
-						</fieldset>
-					  </div>
-						<div class="col-md-7 panel panel-default panel_background" style="padding:10px;">
-						 <fieldset>
-							<legend style="color:#fcfcfc;">Solution's Quality</legend>
-							<table class="table" style="font-size:10px; width:350px; color:#fcfcfc;">
-								<tr>
-									<th>SID</th>
-									<th>Secure</th>
-									<th>Reusable</th>
-									<th>Maintainable</th>
-									<th>Extendable</th>
-								</tr>
-								<tr>
-									<td>2980</td>
-									<td><img src="resources/images/star.png"/></td>
-									<td></td>
-									<td><img src="resources/images/star.png"/></td>
-									<td><img src="resources/images/star.png"/></td>
-								</tr>
-								<tr>
-									<td>2710</td>
-									<td><img src="resources/images/star.png"/></td>
-									<td><img src="resources/images/star.png"/></td>
-									<td><img src="resources/images/star.png"/></td>
-									<td></td>
-								</tr>
-								<tr>
-									<td>3034</td>
-									<td><img src="resources/images/star.png"/></td>
-									<td><img src="resources/images/star.png"/></td>
-									<td></td>
-									<td><img src="resources/images/star.png"/></td>
-								</tr>
-							</table>
-						</fieldset>
-					  </div><!-- End of quality div -->
-					  
-					</div><!-- End of 1st row in main body -->
-					<div class="row">
-						<div class="col-md-5 panel panel-default panel_background" style="padding:10px; margin-right: 10px;">
-							<fieldset>
-								<legend style="color:#fcfcfc;">Solution's Performance</legend>
-								<table class="table" style="font-size:10px; width:270px; color:#fcfcfc;">
-									<tr>
-										<th>SID</th>
-										<th>Efficient</th>
-										<th>Accurate</th>
-										<th>Execution Time</th>
-									</tr>
-									<tr>
-										<td>2980</td>
-										<td><img src="resources/images/star.png"/></td>
-										<td><img src="resources/images/star.png"/></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>2710</td>
-										<td><img src="resources/images/star.png"/></td>
-										<td><img src="resources/images/star.png"/></td>
-										<td><img src="resources/images/star.png"/></td>
-										<td></td>
-									</tr>
-									<tr>
-										<td>3034</td>
-										<td><img src="resources/images/star.png"/></td>
-										<td><img src="resources/images/star.png"/></td>
-										<td></td>
-									</tr>
-								</table>
-							</fieldset>
-						</div>
-						<div class="col-md-6 panel panel-default panel_background" style="padding:10px;">
-							<fieldset>
-								<legend style="color:#fcfcfc;">Messages</legend>
-								<table class="table" style="font-size:10px; width:300px; color:#fcfcfc;">
-									<tr>
-										<th>MID</th>
-										<th>From</th>
-										<th>Message</th>
-										<th>Action</th>
-									</tr>
-									<tr>
-										<td>2314</td>
-										<td>A. Kaoui</td>
-										<td>Need some help, let me know what time you will be available.</td>
-										<td><a href=""><img src="resources/images/reply.png"/></a></td>
-									</tr>
-									<tr>
-										<td>2315</td>
-										<td>S. Seiaghi</td>
-										<td>Need some help, let me know what time you will be available.</td>
-										<td><a href=""><img src="resources/images/reply.png"/></a></td>
-									</tr>
-									<tr>
-										<td>2316</td>
-										<td>M. Kaoui</td>
-										<td>Need some help, let me know what time you will be available.</td>
-										<td><a href=""><img src="resources/images/reply.png"/></a></td>
-									</tr>
-									<tr>
-										<td>2317</td>
-										<td>A. Kaoui</td>
-										<td>Need some help, let me know what time you will be available.</td>
-										<td><a href=""><img src="resources/images/reply.png"/></a></td>
-									</tr>
-								</table>
-							</fieldset>
-						</div>
-					</div>
-				</div>
-			</div>
 			
 		</div>
+		
+		<script src="https://code.jquery.com/jquery-3.1.1.js"
+          integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+          
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="resources/js/navbar.js"></script>
 	</body>
 </html>

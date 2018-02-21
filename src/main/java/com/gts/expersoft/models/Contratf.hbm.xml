@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Contratf" table="contratf" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.ContratfId">
+            <key-property name="noCont" type="string">
+                <column name="NO_CONT" length="65535" />
+            </key-property>
+            <key-property name="datcont" type="string">
+                <column name="DATCONT" length="65535" />
+            </key-property>
+            <key-property name="raisonFou" type="string">
+                <column name="RAISON_FOU" length="65535" />
+            </key-property>
+            <key-property name="refCont" type="string">
+                <column name="REF_CONT" length="65535" />
+            </key-property>
+            <key-property name="codFou" type="string">
+                <column name="COD_FOU" length="65535" />
+            </key-property>
+            <key-property name="codProd" type="string">
+                <column name="COD_PROD" length="65535" />
+            </key-property>
+            <key-property name="qteCont" type="java.lang.Double">
+                <column name="QTE_CONT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="puCont" type="java.lang.Double">
+                <column name="PU_CONT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="mtCont" type="java.lang.Double">
+                <column name="MT_CONT" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteLivre" type="java.lang.Double">
+                <column name="QTE_LIVRE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="qteRest" type="java.lang.Double">
+                <column name="QTE_REST" precision="22" scale="0" />
+            </key-property>
+            <key-property name="montLivre" type="java.lang.Double">
+                <column name="MONT_LIVRE" precision="22" scale="0" />
+            </key-property>
+            <key-property name="datdeb" type="string">
+                <column name="DATDEB" length="65535" />
+            </key-property>
+            <key-property name="datfin" type="string">
+                <column name="DATFIN" length="65535" />
+            </key-property>
+            <key-property name="codUom" type="string">
+                <column name="COD_UOM" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

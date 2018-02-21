@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Feb 21, 2018 10:30:29 AM by Hibernate Tools 5.1.0.Alpha1 -->
+<hibernate-mapping>
+    <class name="com.gts.expersoft.models.Fourn" table="fourn" catalog="xpersoft" optimistic-lock="version">
+        <composite-id name="id" class="com.gts.expersoft.models.FournId">
+            <key-property name="codFou" type="string">
+                <column name="COD_FOU" length="65535" />
+            </key-property>
+            <key-property name="raisonFou" type="string">
+                <column name="RAISON_FOU" length="65535" />
+            </key-property>
+            <key-property name="nocc" type="string">
+                <column name="NOCC" length="65535" />
+            </key-property>
+            <key-property name="norc" type="string">
+                <column name="NORC" length="65535" />
+            </key-property>
+            <key-property name="cptFou" type="string">
+                <column name="CPT_FOU" length="65535" />
+            </key-property>
+            <key-property name="agrement" type="string">
+                <column name="AGREMENT" length="65535" />
+            </key-property>
+            <key-property name="adrFou" type="string">
+                <column name="ADR_FOU" length="65535" />
+            </key-property>
+            <key-property name="telFou" type="string">
+                <column name="TEL_FOU" length="65535" />
+            </key-property>
+            <key-property name="faxFou" type="string">
+                <column name="FAX_FOU" length="65535" />
+            </key-property>
+            <key-property name="obsFou" type="string">
+                <column name="OBS_FOU" length="65535" />
+            </key-property>
+            <key-property name="vilFou" type="string">
+                <column name="VIL_FOU" length="65535" />
+            </key-property>
+            <key-property name="paysFou" type="string">
+                <column name="PAYS_FOU" length="65535" />
+            </key-property>
+            <key-property name="telexFou" type="string">
+                <column name="TELEX_FOU" length="65535" />
+            </key-property>
+            <key-property name="mailFou" type="string">
+                <column name="MAIL_FOU" length="65535" />
+            </key-property>
+            <key-property name="codTypf" type="string">
+                <column name="COD_TYPF" length="65535" />
+            </key-property>
+            <key-property name="bic" type="java.lang.Integer">
+                <column name="BIC" />
+            </key-property>
+            <key-property name="codUt" type="string">
+                <column name="COD_UT" length="65535" />
+            </key-property>
+            <key-property name="dateAdd" type="string">
+                <column name="DATE_ADD" length="65535" />
+            </key-property>
+            <key-property name="dateEdit" type="string">
+                <column name="DATE_EDIT" length="65535" />
+            </key-property>
+            <key-property name="datentre" type="string">
+                <column name="DATENTRE" length="65535" />
+            </key-property>
+            <key-property name="nocptBq" type="string">
+                <column name="NOCPT_BQ" length="65535" />
+            </key-property>
+            <key-property name="nomBq" type="string">
+                <column name="NOM_BQ" length="65535" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
