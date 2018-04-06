@@ -11,6 +11,7 @@ public class ApplicationConstants {
 	public static final int VARIETE_PAGE_ID = 78;
 	public static final int ZONE_PAGE_ID = 79;
 	public static final int REGION_PAGE_ID = 80;
+	public static final int PRODUCTEUR_PAGE_ID = 3;
 	
 	public static final String PROFILE_PAGE_NAME = "profil";
 	public static final String ACCESS_PAGE_NAME = "access";
@@ -18,6 +19,12 @@ public class ApplicationConstants {
 	public static final String VARIETE_PAGE_NAME = "variete";
 	public static final String ZONE_PAGE_NAME = "zone";
 	public static final String REGION_PAGE_NAME = "region";
+	public static final String PRODUCTEUR_PAGE_NAME = "producteur";
 	public static final String NEW = "new";
+	
+	public static final String FEMME = "femme";
+	public static final String HOMME = "homme";
+	public static final int RECEPPROD_PAGE_ID = 11;
+	public static final String RECEPPROD_PAGE_NAME = "recepprod";
 	
 }

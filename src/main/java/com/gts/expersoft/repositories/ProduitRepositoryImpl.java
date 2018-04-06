@@ -10,8 +10,11 @@ import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.FileSystemXmlApplicationContext;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
+
+import com.gts.expersoft.models.Calibre;
 import com.gts.expersoft.models.Produit;
 import com.gts.expersoft.models.Uom;
+import com.gts.expersoft.sql.mappers.CalibreRowMapper;
 import com.gts.expersoft.sql.mappers.ProduitRowMapper;
 import com.gts.expersoft.sql.mappers.UomRowMapper;
 import com.gts.expersoft.utils.SQLQueryConstants;
@@ -29,6 +32,14 @@ public class ProduitRepositoryImpl implements ProduitRepository {
 
 		try{
 			list = getJdbcTemplate().query(SQLQueryConstants.GET_PRODUIT_LIST, new ProduitRowMapper());
+			
+			if(list != null){
+				List<Calibre> cList = new ArrayList<Calibre>();
+				for(Produit p : list){
+					cList = getJdbcTemplate().query(SQLQueryConstants.GET_CALIBRE_LIST, new CalibreRowMapper(),p.getCodProd());
+					p.setCalibres(cList);
+				}
+			}
 
 		}catch(Exception e){
 			LOGGER.debug(e.getMessage());

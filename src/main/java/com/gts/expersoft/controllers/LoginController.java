@@ -1,7 +1,6 @@
 package com.gts.expersoft.controllers;
 
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -20,13 +19,14 @@ import com.gts.expersoft.models.Utilisateur;
 import com.gts.expersoft.services.LoginService;
 import com.gts.expersoft.utils.DateFormatPatterns;
 import com.gts.expersoft.utils.FormattingUtilitiy;
+import com.gts.expersoft.utils.XPLogger;
 
 
 
 @Controller
 @SessionAttributes({"currentUser","userMenus"})
 public class LoginController {
-	private static Logger LOGGER = LoggerFactory.getLogger(LoginController.class);
+	private static final Class<LoginController> CLASSNAME = LoginController.class;
 	
 	@Autowired
 	private LoginService loginService;
@@ -71,8 +71,8 @@ public class LoginController {
 				}
 				
 			} catch(Exception e) {
-				LOGGER.error("Login failed!", e);
-				e.printStackTrace();
+				XPLogger.error(CLASSNAME,"Login failed!",e);
+				//e.printStackTrace();
 			}
 			if(flag){
 				return "home";

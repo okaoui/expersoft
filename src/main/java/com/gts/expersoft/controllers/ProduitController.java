@@ -19,11 +19,14 @@ import com.gts.expersoft.services.RegionService;
 import com.gts.expersoft.services.VarieteService;
 import com.gts.expersoft.services.ZoneService;
 import com.gts.expersoft.utils.ApplicationConstants;
+import com.gts.expersoft.utils.XPLogger;
 
 @Controller
 @SessionAttributes({"profileList","listUom","listP","listV","listZ","listR"})
 public class ProduitController {
 	
+	private static final Class<ProduitController> CLASSNAME = ProduitController.class;
+
 	@Autowired
 	private ProduitService produitService;
 	
@@ -69,10 +72,15 @@ public class ProduitController {
 	    p.setNoBe(Integer.valueOf(prochainN));
 	    p.setBic(Double.valueOf(tauxBic));
 	    
-	    produitService.create(p);
+	    try{
+	    	produitService.create(p);
+		    
+		    List<Produit> listP = produitService.list();
+			model.addAttribute("listP",listP);
+	    }catch(Exception e){
+	    	XPLogger.error(CLASSNAME,"createNewProduit",e);
+	    }
 	    
-	    List<Produit> listP = produitService.list();
-		model.addAttribute("listP",listP);
 	    
 	    
 	    return ApplicationConstants.PRODUIT_PAGE_NAME;
@@ -91,11 +99,14 @@ public class ProduitController {
 	    v.setLibVar(nom);
 	    v.setOrdre(order);
 	   
-	    varieteService.create(v);
-	    
-	    List<VarieteId> listV = varieteService.list();
-		model.addAttribute("listV",listV);
-	    
+	    try{
+	    	varieteService.create(v);
+		    
+		    List<VarieteId> listV = varieteService.list();
+			model.addAttribute("listV",listV);
+	    }catch(Exception e){
+	    	XPLogger.error(CLASSNAME,"createNewVariete",e);
+	    }
 	    
 	    return ApplicationConstants.VARIETE_PAGE_NAME;
 	}
@@ -103,9 +114,15 @@ public class ProduitController {
 	@RequestMapping(value = {"/variete/delete"}, method = RequestMethod.GET)
 	public String deleteVariete(Model model, 
 			@RequestParam(value = "vid", required = true) Integer vid){
-		varieteService.delete(vid);
-		List<VarieteId> listV = varieteService.list();
-		model.addAttribute("listV",listV);
+		
+		try{
+			varieteService.delete(vid);
+			List<VarieteId> listV = varieteService.list();
+			model.addAttribute("listV",listV);
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"deleteVariete",e);
+		}
+		
 		return ApplicationConstants.VARIETE_PAGE_NAME;
 	}
 	
@@ -114,8 +131,13 @@ public class ProduitController {
 		ZoneId z = new ZoneId();
 		z.setLibZone(nom);
 		
-		zoneService.create(z);
-		model.addAttribute("listZ",zoneService.list());
+		try{
+			zoneService.create(z);
+			model.addAttribute("listZ",zoneService.list());
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"createZone",e);
+		}
+		
 		
 		return ApplicationConstants.ZONE_PAGE_NAME;
 	}
@@ -124,8 +146,13 @@ public class ProduitController {
 	public String deleteZone(Model model, 
 			@RequestParam(value = "zid", required = true) Integer zid){
 		
-		zoneService.delete(zid);
-		model.addAttribute("listZ",zoneService.list());
+		try{
+			zoneService.delete(zid);
+			model.addAttribute("listZ",zoneService.list());
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"deleteZone",e);
+		}
+		
 		
 		return ApplicationConstants.ZONE_PAGE_NAME;
 	}
@@ -139,8 +166,13 @@ public class ProduitController {
 		reg.setLatiGps(lati);
 		reg.setLongGps(longi);
 		
-		regionService.create(reg);
-		model.addAttribute("listR",regionService.list());
+		try{
+			regionService.create(reg);
+			model.addAttribute("listR",regionService.list());
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"createRegion",e);
+		}
+		
 		
 		return ApplicationConstants.REGION_PAGE_NAME;
 	}
@@ -149,8 +181,13 @@ public class ProduitController {
 	public String deleteRegion(Model model, 
 			@RequestParam(value = "rid", required = true) Integer rid){
 		
-		regionService.delete(rid);
-		model.addAttribute("listR",regionService.list());
+		try{
+			regionService.delete(rid);
+			model.addAttribute("listR",regionService.list());
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"deleteRegion",e);
+		}
+		
 		
 		return ApplicationConstants.REGION_PAGE_NAME;
 	}

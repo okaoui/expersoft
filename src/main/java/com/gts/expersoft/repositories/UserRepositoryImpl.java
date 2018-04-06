@@ -22,11 +22,12 @@ import com.gts.expersoft.sql.mappers.UtilisateurRowMapper;
 import com.gts.expersoft.utils.DateFormatPatterns;
 import com.gts.expersoft.utils.FormattingUtilitiy;
 import com.gts.expersoft.utils.SQLQueryConstants;
+import com.gts.expersoft.utils.XPLogger;
 
 
 @Repository
 public class UserRepositoryImpl implements UserRepository{
-	private static Logger LOGGER = LoggerFactory.getLogger(UserRepositoryImpl.class);
+	private static final Class<UserRepositoryImpl> CLASSNAME = UserRepositoryImpl.class;
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -36,7 +37,8 @@ public class UserRepositoryImpl implements UserRepository{
 		try{
 			id = getJdbcTemplate().queryForObject(
 					SQLQueryConstants.GET_PROFILE_ID, new Object[] {uid}, Long.class);
-		}catch(EmptyResultDataAccessException e){
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"getProfileId",e);
 			return id;
 		}
 	
@@ -61,7 +63,8 @@ public class UserRepositoryImpl implements UserRepository{
 					u.setLogins(list);
 				}
 			}
-		}catch(EmptyResultDataAccessException e){
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"getUserInfo",e);
 			return u;
 		}
 	
@@ -74,9 +77,10 @@ public class UserRepositoryImpl implements UserRepository{
 			flag = getJdbcTemplate().update(
 				    SQLQueryConstants.REGISTER_LOGIN,
 				    FormattingUtilitiy.longFormattedDate(new Date().getTime(), DateFormatPatterns.PATTERN_3), uid);
-			LOGGER.debug(String.valueOf(flag));
+			//LOGGER.debug(String.valueOf(flag));
 		}catch(Exception e){
-			System.err.println(e.getMessage());
+			//System.err.println(e.getMessage());
+			XPLogger.error(CLASSNAME,"registerLogin",e);
 		}	
 	}
 	
@@ -88,7 +92,6 @@ public class UserRepositoryImpl implements UserRepository{
 		
 		List<Menus> all = new ArrayList<Menus>();
 
-		
 		try{
 			list = getJdbcTemplate().query(SQLQueryConstants.GET_MENU_LIST, 
 					new Object[]{pid}, new MenuRowMapper());
@@ -118,7 +121,7 @@ public class UserRepositoryImpl implements UserRepository{
 			}
 
 		}catch(Exception e){
-			LOGGER.debug(e.getMessage());
+			XPLogger.error(CLASSNAME,"getMenus",e);
 		}
 		
 		return all;

@@ -1,4 +1,7 @@
 package com.gts.expersoft.models;
+
+import java.util.List;
+
 // Generated Feb 21, 2018 10:30:28 AM by Hibernate Tools 5.1.0.Alpha1
 
 /**
@@ -21,6 +24,7 @@ public class Produit implements java.io.Serializable {
 	private String codUom2;
 	private Double puFarm;
 	private Double puFou;
+	private List<Calibre> calibres;
 
 	public Produit() {
 	}
@@ -162,5 +166,15 @@ public class Produit implements java.io.Serializable {
 	public void setPuFou(Double puFou) {
 		this.puFou = puFou;
 	}
+
+	public List<Calibre> getCalibres() {
+		return calibres;
+	}
+
+	public void setCalibres(List<Calibre> calibres) {
+		this.calibres = calibres;
+	}
+	
+	
 
 }

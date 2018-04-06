@@ -15,11 +15,14 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.gts.expersoft.models.Profile;
 import com.gts.expersoft.services.ProfileService;
 import com.gts.expersoft.utils.ApplicationConstants;
+import com.gts.expersoft.utils.XPLogger;
 
 @Controller
 @SessionAttributes("profileList")
 public class AccessibiliteEventController {
 
+	private static final Class<AccessibiliteEventController> CLASSNAME = AccessibiliteEventController.class;
+	
 	@Autowired
 	private ProfileService profileService;
 	
@@ -45,9 +48,14 @@ public class AccessibiliteEventController {
 	    
 	    System.out.println(nom);
 	    
-	    profileService.create(menuIds, nom);
+	    try{
+	    	profileService.create(menuIds, nom);
+		    
+		    model.addAttribute("profileList",profileService.getProfileList());
+	    }catch(Exception e){
+	    	XPLogger.error(CLASSNAME,"createNewProfile",e);
+	    }
 	    
-	    model.addAttribute("profileList",profileService.getProfileList());
 	    
 	    return ApplicationConstants.PROFILE_PAGE_NAME;
 	}
@@ -56,18 +64,16 @@ public class AccessibiliteEventController {
 	public String showProfile(Model model, @RequestParam(value = "pid", required = true) int pid, 
 			HttpServletRequest request){
 		
-		Profile p = profileService.get(pid);
+		try{
+			Profile p = profileService.get(pid);
+			//System.out.println(p.toString());
+			model.addAttribute("profile",p);
+		}catch(Exception e){
+			XPLogger.error(CLASSNAME,"showProfile",e);
+		}
 		
-		/*List<Profile> list = (List<Profile>)request.getSession().getAttribute("profileList");
-		for(Profile p2 : list){
-			if(p2.getId() == p.getId()){
-				p.setNom(p2.getNom());
-				break;
-			}
-		}*/
 		
-		System.out.println(p.toString());
-		model.addAttribute("profile",p);
+		
 		return ApplicationConstants.PROFILE_PAGE_NAME;
 	}
 

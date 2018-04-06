@@ -72,6 +72,34 @@
 		<property name="regionRepository" ref="regionRepository"/>
 	</bean>
 	
+	<bean id="producteurService" class="com.gts.expersoft.services.ProducteurServiceImpl">
+		<property name="producteurRepository" ref="producteurRepository"/>
+	</bean>
+	
+	<bean id="stationService" class="com.gts.expersoft.services.StationServiceImpl">
+		<property name="stationRepository" ref="stationRepository"/>
+	</bean>
+	
+	<bean id="transpService" class="com.gts.expersoft.services.TranspServiceImpl">
+		<property name="transpRepository" ref="transpRepository"/>
+	</bean>
+	
+	<bean id="personnelService" class="com.gts.expersoft.services.PersonnelServiceImpl">
+		<property name="personnelRepository" ref="personnelRepository"/>
+	</bean>
+	
+	<bean id="equipeService" class="com.gts.expersoft.services.EquipeServiceImpl">
+		<property name="equipeRepository" ref="equipeRepository"/>
+	</bean>
+	
+	<bean id="fournService" class="com.gts.expersoft.services.FournServiceImpl">
+		<property name="fournRepository" ref="fournRepository"/>
+	</bean>
+	
+	<bean id="marqueService" class="com.gts.expersoft.services.MarqueServiceImpl">
+		<property name="marqueRepository" ref="marqueRepository"/>
+	</bean>
+	
 	<!-- Repository -->
 
 	<bean id="userRepository" class="com.gts.expersoft.repositories.UserRepositoryImpl">
@@ -96,6 +124,34 @@
 	</bean>
 	
 	<bean id="regionRepository" class="com.gts.expersoft.repositories.RegionRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="producteurRepository" class="com.gts.expersoft.repositories.ProducteurRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="stationRepository" class="com.gts.expersoft.repositories.StationRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="transpRepository" class="com.gts.expersoft.repositories.TranspRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="personnelRepository" class="com.gts.expersoft.repositories.PersonnelRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="equipeRepository" class="com.gts.expersoft.repositories.EquipeRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="fournRepository" class="com.gts.expersoft.repositories.FournRepositoryImpl">
+		<property name="jdbcTemplate" ref="jdbcTemplate"/>
+	</bean>
+	
+	<bean id="marqueRepository" class="com.gts.expersoft.repositories.MarqueRepositoryImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate"/>
 	</bean>
 	
